@@ -7,38 +7,40 @@ import { Computadora, Vehiculo } from '../interfaces/interfaces';
 })
 export class ShareService {
 
+  uri = 'https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1'
+
   constructor(private http: HttpClient) { }
 
   getVehiculos(){
-    return this.http.get('https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/vehiculo')
+    return this.http.get(`${this.uri}/vehiculo`)
   }
 
   createVehiculo(body: Partial<Vehiculo>){
-    return this.http.post('https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/vehiculo', body)
+    return this.http.post(`${this.uri}/vehiculo`, body)
   }
 
   editarVehiculo(body: Partial<Vehiculo>, idVehiculo: string){
-    return this.http.put(`https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/vehiculo/${idVehiculo}`, body)
+    return this.http.put(`${this.uri}/vehiculo/${idVehiculo}`, body)
   }
 
   eliminarVehiculo(idVehiculo: string){
-    return this.http.delete(`https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/vehiculo/${idVehiculo}`)
+    return this.http.delete(`${this.uri}/vehiculo/${idVehiculo}`)
   }
 
   // enpoint para lo relacione a computadoras
   getComputadoras(){
-    return this.http.get('https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/computadora')
+    return this.http.get(`${this.uri}/computadora`)
   }
 
   createComputadora(body: Partial<Computadora>){
-    return this.http.post('https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/computadora', body)
+    return this.http.post(`${this.uri}/computadora`, body)
   }
 
   editarComputadora(body: Partial<Computadora>, idComputadora: string){
-    return this.http.put(`https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/computadora/${idComputadora}`, body)
+    return this.http.put(`${this.uri}/computadora/${idComputadora}`, body)
   }
 
   eliminarComputadora(idComputadora: string){
-    return this.http.delete(`https://63365d6265d1e8ef266b83bb.mockapi.io/api/v1/computadora/${idComputadora}`)
+    return this.http.delete(`${this.uri}/computadora/${idComputadora}`)
   }
 }
