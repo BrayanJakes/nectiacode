@@ -42,6 +42,7 @@ export class VehiculosComponent implements OnInit {
       next: (resp: any) => {
         console.log(resp)
         this.vehiculos = resp;
+        this.vehiculos.reverse();
         this.loading = false;
       }
     })

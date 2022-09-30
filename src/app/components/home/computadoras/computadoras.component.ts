@@ -41,6 +41,7 @@ export class ComputadorasComponent implements OnInit {
       next: (resp: any) => {
         console.log(resp)
         this.computadoras = resp;
+        this.computadoras.reverse();
         this.loading = false;
       }
     })
